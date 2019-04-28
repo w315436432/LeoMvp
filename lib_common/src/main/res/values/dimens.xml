@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="common_toolbar_height">60dp</dimen>
+    <dimen name="common_space_10">10dp</dimen>
+
+    <!-- text size -->
+    <dimen name="common_text_toolbar">20dp</dimen>
+    <dimen name="common_text_topic">25dp</dimen>
+    <dimen name="common_text_content">18dp</dimen>
 </resources>

@@ -4,4 +4,16 @@
         <!-- 解决Toolbar左边空白 -->
         <item name="contentInsetStart">0dp</item>
     </style>
+
+    <!-- toolbar文字按钮 -->
+    <style name="common_toolbar_text_style">
+        <item name="android:textSize">@dimen/common_text_toolbar</item>
+        <item name="android:textColor">@color/common_white</item>
+    </style>
+
+    <!-- toolbar标题 -->
+    <style name="common_toolbar_topic_style">
+        <item name="android:textSize">@dimen/common_text_topic</item>
+        <item name="android:textColor">@color/common_white</item>
+    </style>
 </resources>
