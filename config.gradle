@@ -32,7 +32,6 @@ ext{
             // view
             "butterknife"              : "com.jakewharton:butterknife:${version["butterknifeSdkVersion"]}",
             "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${version["butterknifeSdkVersion"]}",
-            "sweetalert"               : "cn.pedant.sweetalert:library:1.3",
 
             //test
             "junit"                    : "junit:junit:4.13-beta-2",
