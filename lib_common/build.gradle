@@ -48,7 +48,6 @@ dependencies {
     api rootProject.ext.dependencies["rxjava2"]
 
     // view
-    api rootProject.ext.dependencies["sweetalert"]
     api(rootProject.ext.dependencies["butterknife"]) {
         exclude module: 'support-annotations'
         exclude module: 'support-compat'

@@ -2,4 +2,23 @@
 <resources>
     <color name="common_colorPrimary">#1E7CF0</color>
     <color name="common_white">#ffffff</color>
+
+    <!-- sweet alert start-->
+    <color name="common_float_transparent">#00000000</color>
+    <color name="common_sweet_dialog_bg_color">#FFFFFF</color>
+    <color name="common_button_text_color">#FFFFFF</color>
+    <color name="common_gray_btn_bg_color">#D0D0D0</color>
+    <color name="common_gray_btn_bg_pressed_color">#B6B6B6</color>
+    <color name="common_blue_btn_bg_color">#AEDEF4</color>
+    <color name="common_blue_btn_bg_pressed_color">#96BFD2</color>
+    <color name="common_red_btn_bg_color">#DD6B55</color>
+    <color name="common_red_btn_bg_pressed_color">#CD5B55</color>
+    <color name="common_error_stroke_color">#F27474</color>
+    <color name="common_success_stroke_color">#A5DC86</color>
+    <color name="common_trans_success_stroke_color">#33A5DC86</color>
+    <color name="common_warning_stroke_color">#F8BB86</color>
+    <color name="common_text_color">#575757</color>
+    <color name="common_material_blue_grey_80">#ff37474f</color>
+    <color name="common_material_blue_grey_90">#ff263238</color>
+    <!-- sweet alert end-->
 </resources>

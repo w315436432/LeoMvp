@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ProgressWheel -->
+    <declare-styleable name="common_ProgressWheel">
+        <attr name="common_matProg_progressIndeterminate" format="boolean" />
+        <attr name="common_matProg_barColor" format="color" />
+        <attr name="common_matProg_rimColor" format="color" />
+        <attr name="common_matProg_rimWidth" format="dimension" />
+        <attr name="common_matProg_spinSpeed" format="float" />
+        <attr name="common_matProg_barSpinCycleTime" format="integer" />
+        <attr name="common_matProg_circleRadius" format="dimension" />
+        <attr name="common_matProg_fillRadius" format="boolean" />
+        <attr name="common_matProg_barWidth" format="dimension" />
+        <attr name="common_matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+
+    <!-- sweet alert -->
+    <declare-styleable name="common_Rotate3dAnimation">
+        <attr name="common_rollType" format="enum">
+            <enum name="x" value="0"/>
+            <enum name="y" value="1"/>
+            <enum name="z" value="2"/>
+        </attr>
+        <attr name="common_fromDeg" format="float" />
+        <attr name="common_toDeg" format="float" />
+        <attr name="common_pivotX" format="fraction"/>
+        <attr name="common_pivotY" format="fraction" />
+    </declare-styleable>
+</resources>

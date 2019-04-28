@@ -7,4 +7,11 @@
     <dimen name="common_text_toolbar">20dp</dimen>
     <dimen name="common_text_topic">25dp</dimen>
     <dimen name="common_text_content">18dp</dimen>
+
+    <!-- sweet alert start -->
+    <dimen name="common_alert_spacing">10dp</dimen>
+    <dimen name="common_alert_width">290dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="common_progress_circle_radius">34dp</dimen>
+    <!-- sweet alert end -->
 </resources>
