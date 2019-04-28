@@ -1,0 +1,43 @@
+ext{
+
+    android = [
+            compileSdkVersion       : 28,
+            buildToolsVersion       : "28.0.3",
+            minSdkVersion           : 17,
+            targetSdkVersion        : 28,
+            versionCode             : 1,
+            versionName             : "1.0.0"
+    ]
+
+    version = [
+            androidSupportSdkVersion: "28.0.0",
+            espressoSdkVersion      : "3.0.2",
+            butterknifeSdkVersion   : "10.1.0"
+    ]
+
+    dependencies = [
+            // support
+            "appcompat-v7"             : "com.android.support:appcompat-v7:${version["androidSupportSdkVersion"]}",
+            "design"                   : "com.android.support:design:${version["androidSupportSdkVersion"]}",
+            "support-v4"               : "com.android.support:support-v4:${version["androidSupportSdkVersion"]}",
+            "cardview-v7"              : "com.android.support:cardview-v7:${version["androidSupportSdkVersion"]}",
+            "annotations"              : "com.android.support:support-annotations:${version["androidSupportSdkVersion"]}",
+            "recyclerview-v7"          : "com.android.support:recyclerview-v7:${version["androidSupportSdkVersion"]}",
+            "support-vector-drawable"  : "com.android.support:support-vector-drawable:${version["androidSupportSdkVersion"]}",
+            "constraint-layout"        : "com.android.support.constraint:constraint-layout:2.0.0-alpha4",
+
+            // rx2
+            "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.2.8",
+
+            // view
+            "butterknife"              : "com.jakewharton:butterknife:${version["butterknifeSdkVersion"]}",
+            "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${version["butterknifeSdkVersion"]}",
+            "sweetalert"               : "cn.pedant.sweetalert:library:1.3",
+
+            //test
+            "junit"                    : "junit:junit:4.13-beta-2",
+            "runner"                   : "com.android.support.test:runner:1.0.2",
+            "espresso-core"            : "com.android.support.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
+            "espresso-contrib"         : "com.android.support.test.espresso:espresso-contrib:${version["espressoSdkVersion"]}"
+    ]
+}
