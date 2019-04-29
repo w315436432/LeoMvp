@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="common_colorPrimary">#1E7CF0</color>
+    <color name="common_theme">#DC143C</color>
     <color name="common_white">#ffffff</color>
+    <color name="common_translate">#00000000</color>
 
     <!-- sweet alert start-->
     <color name="common_float_transparent">#00000000</color>
