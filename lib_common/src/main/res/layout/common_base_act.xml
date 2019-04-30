@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,11 +11,11 @@
         android:layout_height="0dp"
         android:background="@color/common_theme"/>
 
-    <include
-        android:id="@+id/common_include_toolbar"
-        layout="@layout/common_toolbar"
+    <com.leo.common.widget.toolbar.NormalToolbar
+        android:id="@+id/common_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/common_toolbar_height"/>
+        android:layout_height="@dimen/common_toolbar_height"
+        app:common_titleText="@string/common_account"/>
 
     <FrameLayout
         android:id="@+id/common_fl_container"

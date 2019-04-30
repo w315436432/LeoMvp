@@ -11,17 +11,22 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.leo.common.R;
+import com.leo.common.R2;
 import com.leo.common.app.ActManager;
+import com.leo.common.impl.ToolbarListener;
 import com.leo.common.utils.ScreenUtil;
 import com.leo.common.widget.sweetalert.SweetAlertDialog;
+import com.leo.common.widget.toolbar.NormalToolbar;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -36,7 +41,7 @@ import butterknife.Unbinder;
  * 
  * @modify:
  */
-public abstract class BaseActivity extends AppCompatActivity implements IBaseView{
+public abstract class BaseActivity extends AppCompatActivity implements IBaseView, ToolbarListener {
     private SweetAlertDialog mProgressDialog;
     public Activity mActivity;
     protected final String TAG = this.getClass().getSimpleName();
@@ -47,10 +52,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     private boolean isFirstEnter = true;
 
     private View mStatusView;
-    private Toolbar mToolbar;
-    private TextView mLeftTv;
-    private TextView mTopicTv;
-    private TextView mRightTv;
+    private NormalToolbar mToolbar;
     private FrameLayout mContainerFl;
 
     @Override
@@ -110,9 +112,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     private void initBaseViews(){
         mStatusView = findViewByID(R.id.common_status_bar);
         mToolbar = findViewByID(R.id.common_toolbar);
-        mLeftTv = findViewByID(R.id.common_tv_left);
-        mRightTv = findViewByID(R.id.common_tv_right);
-        mTopicTv = findViewByID(R.id.common_tv_topic);
+        mToolbar.setToolbarListener(this);
         mContainerFl = findViewByID(R.id.common_fl_container);
     }
 
@@ -215,5 +215,37 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
             localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS |
                     localLayoutParams.flags);
         }
+    }
+
+    /**
+     * 设置左右按钮文字
+     * @param leftStr
+     * @param rightStr
+     */
+    public void setToolbarText(String leftStr, String rightStr){
+        mToolbar.setLeftText(leftStr);
+        mToolbar.setRightText(rightStr);
+    }
+
+    /**
+     * 设置标题文字
+     * @param topicStr
+     */
+    public void setToolbarTopic(String topicStr){
+        mToolbar.setTopic(topicStr);
+    }
+
+    public String getTitleTest(){
+        return mToolbar.getTitleText();
+    }
+
+    @Override
+    public void leftListener() {
+        finish();
+    }
+
+    @Override
+    public void rightListener() {
+        Toast.makeText(this, "右侧按钮", Toast.LENGTH_SHORT).show();
     }
 }

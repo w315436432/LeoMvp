@@ -1,6 +1,7 @@
 package com.leo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setToolbarText("返回", "确定");
+        Log.d("aaa", "------------------------" + getTitleTest());
     }
 
     @Override

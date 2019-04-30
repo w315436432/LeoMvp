@@ -26,4 +26,8 @@
         <attr name="common_pivotX" format="fraction"/>
         <attr name="common_pivotY" format="fraction" />
     </declare-styleable>
+
+    <declare-styleable name="common_ToolbarControl">
+        <attr name="common_titleText" format="string"/>
+    </declare-styleable>
 </resources>
