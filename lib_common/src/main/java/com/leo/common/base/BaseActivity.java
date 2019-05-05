@@ -10,23 +10,24 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.leo.common.R;
-import com.leo.common.R2;
 import com.leo.common.app.ActManager;
 import com.leo.common.impl.ToolbarListener;
 import com.leo.common.utils.ScreenUtil;
+import com.leo.common.utils.eventbus.Event;
+import com.leo.common.utils.eventbus.EventBusUtil;
 import com.leo.common.widget.sweetalert.SweetAlertDialog;
 import com.leo.common.widget.toolbar.NormalToolbar;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -52,7 +53,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     private boolean isFirstEnter = true;
 
     private View mStatusView;
-    private NormalToolbar mToolbar;
+    protected NormalToolbar mToolbar;
     private FrameLayout mContainerFl;
 
     @Override
@@ -79,6 +80,10 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
         setupActivityComponent();
 
+        if (isRegisterEventBus()){
+            EventBusUtil.register(this);
+        }
+
         init();
         initListener();
     }
@@ -104,6 +109,9 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
             mProgressDialog.dismiss();
             mProgressDialog = null;
         }
+        if (isRegisterEventBus()) {
+            EventBusUtil.unregister(this);
+        }
     }
 
     /**
@@ -123,12 +131,26 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     @Override
     public void showLoading(boolean isCancel) {
+        if (!isFinishing()){
+            if (mProgressDialog == null){
+                mProgressDialog = new SweetAlertDialog(mActivity, SweetAlertDialog.PROGRESS_TYPE);
+            }
 
+            if (mProgressDialog.isShowing()){
+                mProgressDialog.dismiss();
+            }
+
+            mProgressDialog.setTitleText(getString(R.string.common_loading));
+            mProgressDialog.setCancelable(isCancel);
+            mProgressDialog.show();
+        }
     }
 
     @Override
     public void hideLoading() {
-
+        if (mProgressDialog != null && mProgressDialog.isShowing()){
+            mProgressDialog.dismiss();
+        }
     }
 
     @Override
@@ -166,6 +188,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
      * 初始化数据，onCreate()中init()方法初始化变量完毕后，在onStart中进行数据初始化，联网请求
      */
     public abstract void initData();
+
+    /**
+     * 设置是否需要注册EventBus
+     * @return
+     */
+    public abstract boolean isRegisterEventBus();
 
     /**
      * 初始化非黄油刀绑定的控件
@@ -247,5 +275,33 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     @Override
     public void rightListener() {
         Toast.makeText(this, "右侧按钮", Toast.LENGTH_SHORT).show();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventBusCome(Event event){
+        if (event != null){
+            switch (event.getCode()){
+            }
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onStickyEventBusCome(Event event) {
+    }
+
+    /**
+     * 接受到分发事件
+     * @param event 事件
+     */
+    protected void receiveEvent(Event event){
+    }
+
+    /**
+     * 接受到分发的粘性事件
+     *
+     * @param event 粘性事件
+     */
+    protected void receiveStickyEvent(Event event) {
+
     }
 }

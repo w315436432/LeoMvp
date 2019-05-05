@@ -22,6 +22,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setToolbarText("返回", "确定");
+        setToolbarTopic("呵呵");
         Log.d("aaa", "------------------------" + getTitleTest());
     }
 
