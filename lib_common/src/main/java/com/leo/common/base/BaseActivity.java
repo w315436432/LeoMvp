@@ -19,6 +19,7 @@ import com.leo.common.R;
 import com.leo.common.app.ActManager;
 import com.leo.common.impl.ToolbarListener;
 import com.leo.common.utils.ScreenUtil;
+import com.leo.common.utils.ToastUtil;
 import com.leo.common.utils.eventbus.Event;
 import com.leo.common.utils.eventbus.EventBusUtil;
 import com.leo.common.widget.sweetalert.SweetAlertDialog;
@@ -52,8 +53,10 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     /** 是否是第一次进入*/
     private boolean isFirstEnter = true;
 
+    /** 状态栏*/
     private View mStatusView;
     protected NormalToolbar mToolbar;
+    /** 子类视图容器**/
     private FrameLayout mContainerFl;
 
     @Override
@@ -126,7 +129,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     @Override
     public void showToast(String msg) {
-
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ToastUtil.showToast(BaseActivity.this, msg);
+            }
+        });
     }
 
     @Override
