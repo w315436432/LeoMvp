@@ -76,6 +76,11 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @Override
+    public boolean isRegisterEventBus() {
+        return false;
+    }
+
     @OnClick({R.id.button, R.id.button2})
     public void onViewClicked(View view){
         if (view.getId() == R.id.button){
