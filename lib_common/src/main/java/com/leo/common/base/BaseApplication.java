@@ -9,7 +9,18 @@ import com.leo.common.di.component.DaggerAppComponent;
 import com.leo.common.di.module.AppModule;
 import com.leo.common.impl.App;
 import com.socks.library.KLog;
-
+/**
+ *
+ * @author LeoWang
+ *
+ * @Package com.leo.common.base
+ *
+ * @Description 空壳app项目Application继承此类
+ *
+ * @Date 2019/5/6 14:22
+ *
+ * @modify:
+ */
 public abstract class BaseApplication extends Application implements App {
     final String TAG = "LeoWang";
 
