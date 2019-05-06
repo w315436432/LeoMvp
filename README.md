@@ -1,7 +1,7 @@
 # LeoMvp
 Android组件化框架
 
-lib_common为框架主要的库，提供给各模块所需功能app为空壳，根据模块创建module依赖lib_common，然后进行模块开发
+lib_common为框架主要的库，提供给各模块所需功能。app为空壳，根据模块创建module依赖lib_common，然后进行模块开发
 
 基础MVP + Dagger2 + Arouter实现项目的组件化
 
