@@ -14,4 +14,19 @@
     <string name="common_toast_net_unavailable">当前网络不可用</string>
     <string name="common_toast_open_call_phone_op">请开启通话权限</string>
     <string name="common_error_phone_number">电话号码有误</string>
+
+    <!-- 错误状态码解释 -->
+    <string name="common_error_status_code_default">网络错误</string>
+    <string name="common_error_status_code_401">401:需要通过HTTP认证，或认证失败</string>
+    <string name="common_error_status_code_403">403:请求资源被拒绝</string>
+    <string name="common_error_status_code_404">404:无法找到请求资源</string>
+    <string name="common_error_status_code_408">408:服务器等候请求时发生超时</string>
+    <string name="common_error_status_code_500">500:服务器遇到错误，无法完成请求</string>
+    <string name="common_error_status_code_502">502:错误网关</string>
+    <string name="common_error_status_code_503">503:服务不可用</string>
+    <string name="common_error_status_code_504">504:网关超时</string>
+    <string name="common_error_status_parse_error">解析错误</string>
+    <string name="common_error_status_connect_error">连接失败</string>
+    <string name="common_error_status_ssl_error">证书验证失败</string>
+    <string name="common_error_status_unknown_error">未知错误</string>
 </resources>

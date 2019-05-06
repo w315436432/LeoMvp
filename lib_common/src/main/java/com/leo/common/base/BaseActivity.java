@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.leo.common.R;
 import com.leo.common.app.ActManager;
+import com.leo.common.http.ExceptionHandle;
 import com.leo.common.impl.ToolbarListener;
 import com.leo.common.utils.ScreenUtil;
 import com.leo.common.utils.ToastUtil;
@@ -118,7 +119,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     }
 
     /**
-     * 初始化toolbar，为了避免未知坑，此处不用黄油刀
+     * 初始化toolbar，为了避免未知坑，此处不用黄油刀，有时候没必要非得踩坑
      */
     private void initBaseViews(){
         mStatusView = findViewByID(R.id.common_status_bar);
@@ -168,7 +169,13 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     @Override
     public void handleThrowable(Throwable throwable) {
-
+        if (throwable instanceof Exception){
+            ExceptionHandle.ResponeThrowable e = ExceptionHandle.handleException(throwable);
+            showToast(e.message);
+        }else {
+            ExceptionHandle.ResponeThrowable e = new ExceptionHandle.ResponeThrowable(throwable, ExceptionHandle.ERROR.UNKNOWN);
+            showToast(e.message);
+        }
     }
 
     /**
