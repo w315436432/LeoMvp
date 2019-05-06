@@ -30,6 +30,10 @@ ext{
             "support-vector-drawable"  : "com.android.support:support-vector-drawable:${version["androidSupportSdkVersion"]}",
             "constraint-layout"        : "com.android.support.constraint:constraint-layout:2.0.0-alpha4",
 
+            //Atrouter
+            "arouter-api"               : "com.alibaba:arouter-api:1.4.1",
+            "arouter-compiler"          : "com.alibaba:arouter-compiler:1.2.2",
+
             // net
             "okhttp3"                  : "com.squareup.okhttp3:okhttp:${version["okhttp3Version"]}",
             "okhttp3-logging-interceptor": "com.squareup.okhttp3:logging-interceptor:${version["okhttp3Version"]}",

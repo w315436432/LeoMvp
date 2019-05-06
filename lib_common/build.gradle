@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.alibaba.arouter'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -20,6 +21,12 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        //Arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -44,6 +51,10 @@ dependencies {
     }
     api rootProject.ext.dependencies["constraint-layout"]
 
+    // router
+    api rootProject.ext.dependencies["arouter-api"]
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+
     // net
     api rootProject.ext.dependencies["okhttp3"]
     api rootProject.ext.dependencies["okhttp3-logging-interceptor"]
@@ -53,6 +64,7 @@ dependencies {
 
     // rx2
     api rootProject.ext.dependencies["rxjava2"]
+    api rootProject.ext.dependencies["rxandroid2"]
 
     // view
     api(rootProject.ext.dependencies["butterknife"]) {

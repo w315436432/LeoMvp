@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "config.gradle"
+apply plugin: 'com.alibaba.arouter'
 
 buildscript {
     repositories {
@@ -10,6 +11,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.0'
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
+        classpath "com.alibaba:arouter-register:1.0.2"
     }
 }
 
