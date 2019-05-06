@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.alibaba.arouter'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -36,6 +37,11 @@ android {
         }
     }
 
+    greendao{
+        schemaVersion 1
+        targetGenDir 'src/main/java'
+    }
+
 }
 
 dependencies {
@@ -54,6 +60,9 @@ dependencies {
     // router
     api rootProject.ext.dependencies["arouter-api"]
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+
+    // db
+    api rootProject.ext.dependencies["greendao"]
 
     // net
     api rootProject.ext.dependencies["okhttp3"]

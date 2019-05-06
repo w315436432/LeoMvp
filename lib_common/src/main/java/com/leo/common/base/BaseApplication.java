@@ -11,10 +11,10 @@ import com.leo.common.impl.App;
 import com.socks.library.KLog;
 
 public abstract class BaseApplication extends Application implements App {
-    private final String TAG = "LeoWang";
+    final String TAG = "LeoWang";
 
-    private boolean LOG_DEBUG = true;
-    private boolean isDebugArouter = true;
+    boolean LOG_DEBUG = true;
+    boolean isDebugArouter = true;
 
     private static BaseApplication instance;
 
