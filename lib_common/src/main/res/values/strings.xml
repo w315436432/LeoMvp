@@ -1,7 +1,9 @@
 <resources>
+    <string name="common_lib_name">core</string>
+
     <string name="common_confirm">确定</string>
     <string name="common_cancel">取消</string>
-    <string name="common_loading">加载中...</string>
+    <string name="common_loading">加载中&#8230;&#8230;&#8230;</string>
     <string name="common_account">账号</string>
     <string name="common_pwd">密码</string>
     <string name="common_phone_num">手机号</string>
