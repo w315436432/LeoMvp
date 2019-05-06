@@ -48,6 +48,7 @@ public abstract class BaseApplication extends Application implements App {
     public void onCreate() {
         super.onCreate();
         instance = this;
+
         KLog.init(LOG_DEBUG, TAG);
 
         if (isDebugArouter) {
