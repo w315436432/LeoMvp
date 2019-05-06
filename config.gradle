@@ -55,6 +55,7 @@ ext{
             // view
             "butterknife"              : "com.jakewharton:butterknife:${version["butterknifeSdkVersion"]}",
             "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${version["butterknifeSdkVersion"]}",
+            "base-recyclerview-adapter-helper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
 
             // db
             "greendao-generator"       : "org.greenrobot:greendao-generator:${version["greendaoSdkVersion"]}",

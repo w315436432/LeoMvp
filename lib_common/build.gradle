@@ -82,6 +82,7 @@ dependencies {
     }
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     api rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["base-recyclerview-adapter-helper"]
 
     // tools
     api rootProject.ext.dependencies["eventbus"]
