@@ -19,5 +19,6 @@ API接口使用 http://api.comin.top/
 目前状态：
         lib_common基本完成，为了避免多模块间资源混乱，相应模块下的gradle中加入了资源前缀限制resourcePrefix "common_"
         接下来准备做模块Demo。by 2019/5/6
+        
         module_home加入，在LoginAct中加了个测试接口。by 2019/5/8
      
