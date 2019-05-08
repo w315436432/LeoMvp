@@ -17,10 +17,19 @@ EventBus通信
 API接口使用 http://api.comin.top/
 
 状态：
-lib_common基本完成，为了避免多模块间资源混乱，相应模块下的gradle中加入了资源前缀限制resourcePrefix "common_"
+     lib_common基本完成，为了避免多模块间资源混乱，相应模块下的gradle中加入了资源前缀限制resourcePrefix "common_"
 接下来准备做模块Demo。by 2019/5/6
 
 module_home加入，在LoginAct中加了个测试接口。by 2019/5/8
         
-       
+使用注意：  
+     1、module下build.gradle中isModule需自己在gradle.properties中定义，为了便于进行模块单独测试，如单独运行module，需在相应module中配置Manifest，自行百度；             
+     2、module如果使用ButterKnife、Arouter，需要在build.gradle下配置apply plugin: 'com.jakewharton.butterknife'、apply plugin: 'com.alibaba.arouter'。并添加arouter-compiler、butterknife-compiler依赖；
+     3、apply plugin: 'cn.leo.plugin.magic'是singleclick防重复点击库所需；
+     4、由于使用Dagger2提供了一些所需的实例，所以每个模块下一定要添加 butterknife-compiler；
+     5、建议每个module使用resourcePrefix限制资源前缀，防止资源文件过多造成混乱；
+     
+     
+
+
      
