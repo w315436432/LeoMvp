@@ -14,6 +14,8 @@ UI方面使用ButterKnife、BaseRecyclerViewAdapterHelper、easyswipemenulayout�
 
 EventBus通信
 
+API接口使用 http://api.comin.top/
+
 目前状态：
         lib_common基本完成，为了避免多模块间资源混乱，相应模块下的gradle中加入了资源前缀限制resourcePrefix "common_"
         接下来准备做模块Demo。by 2019/5/6
