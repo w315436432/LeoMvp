@@ -12,4 +12,7 @@ package com.leo.common.app.arouter;
  * @modify:
  */
 public class RouterKey {
+
+    public static final String HOME_TEXT_TAG = "home_text_tag";
+
 }

@@ -1,2 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wcs.home" />
+    package="com.leo.home" >
+    <application android:theme="@style/common_AppTheme">
+
+        <activity
+            android:name=".ui.login.LoginAct"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.home.HomeAct"
+            android:screenOrientation="portrait"/>
+
+    </application>
+</manifest>

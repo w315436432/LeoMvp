@@ -1,5 +1,6 @@
 package com.leo.common.widget.toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -54,13 +55,14 @@ public class NormalToolbar extends Toolbar {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        View view = LayoutInflater.from(context).inflate(R.layout.common_custom_toolbar, this, true);
+        View view = LayoutInflater.from(context).inflate(R.layout.common_toolbar, this, true);
         mUnBinder = ButterKnife.bind(this, view);
 
         //很重要
         setContentInsetsRelative(0, 0);
 
         // Load attributes
+        @SuppressLint("CustomViewStyleable")
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.common_ToolbarControl, 0, 0);
         titleText = a.getString(R.styleable.common_ToolbarControl_common_titleText);

@@ -229,6 +229,13 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     }
 
     /**
+     * 隐藏标题栏
+     */
+    public void hideToolbar(){
+        mToolbar.hide();
+    }
+
+    /**
      * 设置状态栏颜色
      *
      * @param color

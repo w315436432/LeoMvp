@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Base application theme. -->
+    <style name="common_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
     <style name="common_toolbar_style" parent="@style/Widget.AppCompat.Toolbar">
         <!-- 解决Toolbar左边空白 -->
         <item name="contentInsetStart">0dp</item>

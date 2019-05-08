@@ -12,16 +12,41 @@ package com.leo.common.base;
  * @modify:
  */
 public class BaseResponse<T> {
-    private int code;
-    private T data;
-    private String msg;
 
-    public int getCode() {
-        return code;
+    /**
+     * method : Com.Think.getWeatherData
+     * time : 1548047960
+     * status : {"code":1,"remind":"SUCCESS"}
+     * data : {}
+     */
+
+    private String method;
+    private int time;
+    private StatusBean status;
+    private T data;
+
+    public String getMethod() {
+        return method;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public StatusBean getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusBean status) {
+        this.status = status;
     }
 
     public T getData() {
@@ -32,11 +57,29 @@ public class BaseResponse<T> {
         this.data = data;
     }
 
-    public String getMsg() {
-        return msg;
-    }
+    public static class StatusBean {
+        /**
+         * code : 1
+         * remind : SUCCESS
+         */
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+        private int code;
+        private String remind;
+
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public String getRemind() {
+            return remind;
+        }
+
+        public void setRemind(String remind) {
+            this.remind = remind;
+        }
     }
 }

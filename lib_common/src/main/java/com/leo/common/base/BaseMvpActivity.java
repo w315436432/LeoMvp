@@ -5,7 +5,18 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.leo.common.utils.ReflectUtil;
-
+/**
+ * 
+ * @author LeoWang
+ * 
+ * @Package com.leo.common.base
+ * 
+ * @Description MVP模式基类
+ * 
+ * @Date 2019/5/7 16:29
+ * 
+ * @modify:
+ */
 public abstract class BaseMvpActivity<P extends BasePresenter, M extends IBaseModel> extends BaseActivity{
     public P mPresenter;
     public M mModel;
