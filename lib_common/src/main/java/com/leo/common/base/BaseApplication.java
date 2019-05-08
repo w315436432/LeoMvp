@@ -71,7 +71,7 @@ public abstract class BaseApplication extends Application implements App {
 
     @Override
     public AppComponent getAppComponent() {
-        if (appComponent == null){
+        if (null == appComponent){
             appComponent = DaggerAppComponent.builder()
                     .appModule(new AppModule(this))
                     .build();
