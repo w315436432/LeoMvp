@@ -36,10 +36,6 @@ public abstract class BaseMvpActivity<P extends BasePresenter, M extends IBaseMo
     protected void onDestroy() {
         KLog.d("onDestroy" + this.getClass().toString());
         super.onDestroy();
-        if (mPresenter != null){
-            mPresenter.onDetach();
-            mPresenter.dispose();
-        }
         mPresenter = null;
     }
 }

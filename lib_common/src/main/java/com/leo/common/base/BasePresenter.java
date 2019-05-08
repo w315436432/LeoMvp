@@ -24,22 +24,23 @@ import io.reactivex.disposables.Disposable;
  */
 public abstract class BasePresenter<M, V> implements IPresenter {
     protected M mModel;
-    protected WeakReference<V> mWeakRef;
+    private WeakReference<V> mWeakRef;
     private CompositeDisposable disposable = new CompositeDisposable();
 
-    protected void onAttach(M model, V view){
+    void onAttach(M model, V view){
         mModel = model;
         mWeakRef = new WeakReference<>(view);
     }
 
-    protected void onDetach(){
+    private void onDetach(){
         if (null != mWeakRef){
             mWeakRef.clear();
             mWeakRef = null;
+            KLog.d("BasePresenter.onDetach-----------------" + this.getClass().toString());
         }
     }
 
-    protected boolean isViewAttached(){
+    private boolean isViewAttached(){
         return null != mWeakRef && null != mWeakRef.get();
     }
 
@@ -51,9 +52,10 @@ public abstract class BasePresenter<M, V> implements IPresenter {
         disposable.add(dis);
     }
 
-    protected void dispose(){
+    private void dispose(){
         if (disposable != null){
             disposable.clear();
+            KLog.d("BasePresenter.dispose-----------" + this.getClass().toString());
         }
     }
 
@@ -85,6 +87,8 @@ public abstract class BasePresenter<M, V> implements IPresenter {
     @Override
     public void onDestroy(LifecycleOwner owner) {
         KLog.d("BasePresenter.onDestroy" + this.getClass().toString());
+        onDetach();
+        dispose();
     }
 
     @Override

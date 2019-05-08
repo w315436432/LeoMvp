@@ -33,15 +33,13 @@ public abstract class BaseMvpFragment<P extends BasePresenter, M extends IBaseVi
         mPresenter = ReflectUtil.getT(this, 0);
         mBaseModel = ReflectUtil.getT(this, 1);
         mPresenter.onAttach(mBaseModel, this);
+        getLifecycle().addObserver(mPresenter);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (mPresenter != null){
-            mPresenter.onDetach();
-        }
         mPresenter = null;
     }
 }
