@@ -130,12 +130,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     @Override
     public void showToast(String msg) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                ToastUtil.showToast(BaseActivity.this, msg);
-            }
-        });
+        runOnUiThread(() -> ToastUtil.showToast(BaseActivity.this, msg));
     }
 
     @Override
@@ -180,7 +175,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     /**
      * 布局id
-     * @return
+     * @return 布局id
      */
     protected abstract int getLayoutId();
 
@@ -206,15 +201,15 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     /**
      * 设置是否需要注册EventBus
-     * @return
+     * @return 是否注册
      */
     public abstract boolean isRegisterEventBus();
 
     /**
      * 初始化非黄油刀绑定的控件
-     * @param id
-     * @param <T>
-     * @return
+     * @param id 控件id
+     * @param <T> 类型
+     * @return 控件对象
      */
     public <T extends View> T findViewByID(int id){
         return (T) super.findViewById(id);
@@ -237,8 +232,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     /**
      * 设置状态栏颜色
-     *
-     * @param color
+     * @param color 颜色id
      */
     public void setStatusBarColor(int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -269,8 +263,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     /**
      * 设置左右按钮文字
-     * @param leftStr
-     * @param rightStr
+     * @param leftStr 左文字
+     * @param rightStr 右文字
      */
     public void setToolbarText(String leftStr, String rightStr){
         mToolbar.setLeftText(leftStr);
@@ -279,14 +273,10 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     /**
      * 设置标题文字
-     * @param topicStr
+     * @param topicStr 标题
      */
     public void setToolbarTopic(String topicStr){
         mToolbar.setTopic(topicStr);
-    }
-
-    public String getTitleTest(){
-        return mToolbar.getTitleText();
     }
 
     @Override

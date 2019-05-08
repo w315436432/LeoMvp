@@ -31,7 +31,7 @@ public class ActManager {
 
     /**
      * 添加Activity到栈
-     * @param activity
+     * @param activity 当前Activity
      */
     public void addActivity(Activity activity){
         if (activityStack == null){
@@ -62,8 +62,7 @@ public class ActManager {
      * 获取当前Activity（堆栈中最后一个压入的）
      */
     public Activity currentActivity() {
-        Activity activity = activityStack.lastElement();
-        return activity;
+        return activityStack.lastElement();
     }
 
     /**
@@ -108,9 +107,12 @@ public class ActManager {
             finishAllActivity();
             ActivityManager activityMgr = (ActivityManager) context
                     .getSystemService(Context.ACTIVITY_SERVICE);
-            activityMgr.killBackgroundProcesses(context.getPackageName());
-            System.exit(0);
+            if (null != activityMgr){
+                activityMgr.killBackgroundProcesses(context.getPackageName());
+                System.exit(0);
+            }
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

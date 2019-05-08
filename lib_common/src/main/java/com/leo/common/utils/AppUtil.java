@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -56,14 +57,15 @@ public class AppUtil {
 
     /**
      * 获取应用版本号，需要判空
-     * @param context
-     * @return
+     * @param context 当前上下文
+     * @param packageName 包名
+     * @return 应用版本号
      */
-    public static String getVersionName(Context context) {
+    public static String getVersionName(Context context,@NonNull String packageName) {
         String version = null;
         try {
             PackageManager manager = context.getPackageManager();
-            PackageInfo info = manager.getPackageInfo("cn.com.drpeng", 0);
+            PackageInfo info = manager.getPackageInfo(packageName, 0);
             version = info.versionName;
         } catch (Exception e) {
             version = "";
@@ -74,8 +76,8 @@ public class AppUtil {
     /**
      * dip转pix
      *
-     * @param dpValue
-     * @return
+     * @param dpValue db值
+     * @return px值
      */
     public static int dip2px(Context context, float dpValue) {
         final float scale = getResources(context).getDisplayMetrics().density;
@@ -84,6 +86,8 @@ public class AppUtil {
 
     /**
      * 获得资源
+     * @param context 上下文
+     * @return Resources
      */
     public static Resources getResources(Context context) {
         return context.getResources();
@@ -91,6 +95,9 @@ public class AppUtil {
 
     /**
      * 得到字符数组
+     * @param context 上下文
+     * @param id StringArray
+     * @return 字符资源中数组
      */
     public static String[] getStringArray(Context context, int id) {
         return getResources(context).getStringArray(id);
@@ -98,6 +105,9 @@ public class AppUtil {
 
     /**
      * pix转dip
+     * @param context 上下文
+     * @param pix px值
+     * @return dp值
      */
     public static int pix2dip(Context context, int pix) {
         final float densityDpi = getResources(context).getDisplayMetrics().density;
@@ -107,10 +117,9 @@ public class AppUtil {
 
     /**
      * 从 dimens 中获得尺寸
-     *
-     * @param context
-     * @param id
-     * @return
+     * @param context 上下文
+     * @param id dimen~s id
+     * @return dimen值
      */
     public static int getDimens(Context context, int id) {
         return (int) getResources(context).getDimension(id);
@@ -118,10 +127,9 @@ public class AppUtil {
 
     /**
      * 从 dimens 中获得尺寸
-     *
-     * @param context
-     * @param dimenName
-     * @return
+     * @param context 上下文
+     * @param dimenName dimenName
+     * @return dimen
      */
     public static float getDimens(Context context, String dimenName) {
         return getResources(context).getDimension(getResources(context).getIdentifier(dimenName, "dimen", context.getPackageName()));
@@ -129,18 +137,19 @@ public class AppUtil {
 
     /**
      * 从String 中获得字符
-     *
-     * @return
+     * @param context 上下文
+     * @param stringID 字符资源id
+     * @return 字符
      */
-
     public static String getString(Context context, int stringID) {
         return getResources(context).getString(stringID);
     }
 
     /**
      * 从String 中获得字符
-     *
-     * @return
+     * @param context 上下文
+     * @param strName 名称
+     * @return 字符
      */
 
     public static String getString(Context context, String strName) {
@@ -149,11 +158,11 @@ public class AppUtil {
 
     /**
      * findview
-     *
-     * @param view
-     * @param viewName
-     * @param <T>
-     * @return
+     * @param context 上下文
+     * @param view view
+     * @param viewName 控件名
+     * @param <T> 类型
+     * @return 控件
      */
     public static <T extends View> T findViewByName(Context context, View view, String viewName) {
         int id = getResources(context).getIdentifier(viewName, "id", context.getPackageName());
@@ -163,7 +172,6 @@ public class AppUtil {
 
     /**
      * findview
-     *
      * @param activity
      * @param viewName
      * @param <T>

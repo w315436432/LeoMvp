@@ -14,7 +14,7 @@ package com.leo.common.utils;
 public class TimeUtil {
     /**
      * 获得时间戳
-     * @return String
+     * @return 时间戳字符串
      */
     public static String getStringTimestamp(){
         return String.valueOf((int) (System.currentTimeMillis()/1000));

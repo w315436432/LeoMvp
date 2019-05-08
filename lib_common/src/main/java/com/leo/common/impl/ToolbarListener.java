@@ -12,6 +12,13 @@ package com.leo.common.impl;
  * @modify:
  */
 public interface ToolbarListener {
+    /**
+     * 左边按钮监听
+     */
     void leftListener();
+
+    /**
+     * 右边按钮监听
+     */
     void rightListener();
 }

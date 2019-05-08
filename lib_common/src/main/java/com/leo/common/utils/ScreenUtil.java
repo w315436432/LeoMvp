@@ -20,9 +20,8 @@ public class ScreenUtil {
 
     /**
      * 获取手机状态栏高度
-     *
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return 状态栏高度
      */
     public static int getStatusBarHeight(Context context) {
         int height = 0;

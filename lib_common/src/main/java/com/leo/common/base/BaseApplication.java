@@ -35,9 +35,9 @@ public abstract class BaseApplication extends Application implements App {
         return instance;
     }
 
-    public static BaseApplication getApp(Context context) {
-        return (BaseApplication) context.getApplicationContext();
-    }
+//    public static BaseApplication getApp(Context context) {
+//        return (BaseApplication) context.getApplicationContext();
+//    }
 
     @Override
     protected void attachBaseContext(Context base) {

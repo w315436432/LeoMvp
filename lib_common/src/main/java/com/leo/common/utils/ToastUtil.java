@@ -1,5 +1,6 @@
 package com.leo.common.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.Toast;
 /**
@@ -16,6 +17,8 @@ import android.widget.Toast;
  */
 public class ToastUtil {
     private static Toast toast;
+    
+    @SuppressLint("ShowToast")
     public static void showToast(Context context, String text) {
         if (toast == null) {
             toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);

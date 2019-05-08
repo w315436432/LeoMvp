@@ -36,11 +36,11 @@ import butterknife.Unbinder;
  */
 public abstract class BaseFragment extends Fragment implements IBaseView{
     private SweetAlertDialog mProgressDialog;
-    public Activity mActivity;
+    private Activity mActivity;
     private Unbinder mUnBinder;
 
     /** 是否是第一次加载*/
-    protected boolean isFirstEnter = true;
+    private boolean isFirstEnter = true;
 
     @Override
     public void onAttach(Context context) {
@@ -60,11 +60,14 @@ public abstract class BaseFragment extends Fragment implements IBaseView{
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), container, false);
-        mUnBinder = ButterKnife.bind(this, view);
-        init();
-        initListener();
+    public View onCreateView(@Nullable LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = null;
+        if (null != inflater){
+            view = inflater.inflate(getLayoutId(), container, false);
+            mUnBinder = ButterKnife.bind(this, view);
+            init();
+            initListener();
+        }
         return view;
     }
 
@@ -98,12 +101,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView{
 
     @Override
     public void showToast(String msg) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                ToastUtil.showToast(getActivity(), msg);
-            }
-        });
+        mActivity.runOnUiThread(() -> ToastUtil.showToast(getActivity(), msg));
     }
 
     @Override
