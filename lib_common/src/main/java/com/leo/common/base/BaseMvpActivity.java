@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.leo.common.utils.ReflectUtil;
+import com.socks.library.KLog;
+
 /**
  * 
  * @author LeoWang
@@ -27,10 +29,12 @@ public abstract class BaseMvpActivity<P extends BasePresenter, M extends IBaseMo
         mPresenter = ReflectUtil.getT(this, 0);
         mModel = ReflectUtil.getT(this, 1);
         mPresenter.onAttach(mModel, this);
+        getLifecycle().addObserver(mPresenter);
     }
 
     @Override
     protected void onDestroy() {
+        KLog.d("onDestroy" + this.getClass().toString());
         super.onDestroy();
         if (mPresenter != null){
             mPresenter.onDetach();
