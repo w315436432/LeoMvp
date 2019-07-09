@@ -10,31 +10,38 @@ ext{
     ]
 
     version = [
-            androidSupportSdkVersion: "28.0.0",
-            espressoSdkVersion      : "3.0.2",
+            espressoSdkVersion      : "3.3.0-alpha01",
             butterknifeSdkVersion   : "10.1.0",
-            dagger2SdkVersion       : "2.22.1",
-            okhttp3Version          : "3.12.2",
-            retrofitSdkVersion      : "2.5.0",
+            dagger2SdkVersion       : "2.23.2",
+            okhttp3Version          : "4.0.0-alpha02",
+            retrofitSdkVersion      : "2.6.0",
             rxlifecycle2SdkVersion  : "3.0.0",
-            greendaoSdkVersion      : "3.2.2"
+            greendaoSdkVersion      : "3.2.2",
+            roomSdkVersion          : "1.1.1",
+            glideSdkVersion         : "4.9.0",
+            androidxSdkVersion      : "1.1.0-alpha05",
+            permissionsdispatcherSdkVersion   : "4.3.1"
     ]
 
     dependencies = [
             // support
-            "appcompat-v7"             : "com.android.support:appcompat-v7:${version["androidSupportSdkVersion"]}",
-            "design"                   : "com.android.support:design:${version["androidSupportSdkVersion"]}",
-            "support-v4"               : "com.android.support:support-v4:${version["androidSupportSdkVersion"]}",
-            "cardview-v7"              : "com.android.support:cardview-v7:${version["androidSupportSdkVersion"]}",
-            "annotations"              : "com.android.support:support-annotations:${version["androidSupportSdkVersion"]}",
-            "recyclerview-v7"          : "com.android.support:recyclerview-v7:${version["androidSupportSdkVersion"]}",
-            "support-vector-drawable"  : "com.android.support:support-vector-drawable:${version["androidSupportSdkVersion"]}",
-            "constraint-layout"        : "com.android.support.constraint:constraint-layout:2.0.0-alpha4",
+            "appcompat"                : "androidx.appcompat:appcompat:${version["androidxSdkVersion"]}",
+            "recyclerview"             : "androidx.recyclerview:recyclerview:${version["androidxSdkVersion"]}",
+            "cardview"                 : "androidx.cardview:cardview:${version["androidxSdkVersion"]}",
+            "annotations"              : "androidx.annotation:annotation:${version["androidxSdkVersion"]}",
+            "vectordrawable"           : "androidx.vectordrawable:vectordrawable:${version["androidxSdkVersion"]}",
             "multidex"                 : "com.android.support:multidex:1.0.3",
+            "design"                   : "com.google.android.material:material:1.1.0-alpha07",
+            "support-v4"               : "androidx.legacy:legacy-support-v4:1.0.0",
+            "constraint-layout"        : "androidx.constraintlayout:constraintlayout:2.0.0-beta2",
 
-            //Atrouter
-            "arouter-api"               : "com.alibaba:arouter-api:1.4.1",
-            "arouter-compiler"          : "com.alibaba:arouter-compiler:1.2.2",
+            // Atrouter
+            "arouter-api"              : "com.alibaba:arouter-api:1.5.0",
+            "arouter-compiler"         : "com.alibaba:arouter-compiler:1.2.2",
+
+            // glide
+            "glide"                    : "com.github.bumptech.glide:glide:${version["glideSdkVersion"]}",
+            "glide-compiler"           : "com.github.bumptech.glide:compiler:${version["glideSdkVersion"]}",
 
             // net
             "okhttp3"                  : "com.squareup.okhttp3:okhttp:${version["okhttp3Version"]}",
@@ -44,6 +51,7 @@ ext{
             "retrofit-converter-gson"  : "com.squareup.retrofit2:converter-gson:${version["retrofitSdkVersion"]}",
             "retrofit-adapter-rxjava2" : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitSdkVersion"]}",
             "retrofit2-converter-scalars": "com.squareup.retrofit2:${version["retrofitSdkVersion"]}",
+            "retrofit-url-manager"     : "me.jessyan:retrofit-url-manager:1.4.0",
 
             // rx2
             "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.2.8",
@@ -56,10 +64,18 @@ ext{
             // view
             "butterknife"              : "com.jakewharton:butterknife:${version["butterknifeSdkVersion"]}",
             "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${version["butterknifeSdkVersion"]}",
-            "base-recyclerview-adapter-helper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
+            "base-recyclerview-adapter-helper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46",
             "singleclick"              : "com.github.jarryleo:SingleClick:v1.8.3",
+            "bottom-navigation-bar"    : "com.ashokvarma.android:bottom-navigation-bar:2.1.0",
+            "numberprogressbar"        : "com.daimajia.numberprogressbar:library:1.4@aar",
+            "calendarview"             : "com.haibin:calendarview:3.6.2",
+            "ultra-ptr"                : "in.srain.cube:ultra-ptr:1.0.11",
+            "ptr_load_more"            : "in.srain.cube:ptr-load-more:1.0.6",
+
 
             // db
+            "room"                     : "android.arch.persistence.room:runtime:${version["roomSdkVersion"]}",
+            "room-compiler"            : "android.arch.persistence.room:compiler:${version["roomSdkVersion"]}",
             "greendao-generator"       : "org.greenrobot:greendao-generator:${version["greendaoSdkVersion"]}",
             "greendao"                 : "org.greenrobot:greendao:${version["greendaoSdkVersion"]}",
 
@@ -72,11 +88,13 @@ ext{
             "dagger2-android-support"  : "com.google.dagger:dagger-android-support:${version["dagger2SdkVersion"]}",
             "dagger2-compiler"         : "com.google.dagger:dagger-compiler:${version["dagger2SdkVersion"]}",
             "dagger2-android-processor": "com.google.dagger:dagger-android-processor:${version["dagger2SdkVersion"]}",
+            "permissions-dispatcher"   : "org.permissionsdispatcher:permissionsdispatcher:${version["permissionsdispatcherSdkVersion"]}",
+            "permissionsdispatcher-processor"   : "org.permissionsdispatcher:permissionsdispatcher-processor:${version["permissionsdispatcherSdkVersion"]}",
 
             //test
-            "junit"                    : "junit:junit:4.13-beta-2",
-            "runner"                   : "com.android.support.test:runner:1.0.2",
-            "espresso-core"            : "com.android.support.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
-            "espresso-contrib"         : "com.android.support.test.espresso:espresso-contrib:${version["espressoSdkVersion"]}"
+            "junit"                    : "junit:junit:4.13-beta-3",
+            "runner"                   : "androidx.test:runner:1.3.0-alpha01",
+            "espresso-core"            : "androidx.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
+            "espresso-contrib"         : "androidx.test.espresso:espresso-contrib:${version["espressoSdkVersion"]}"
     ]
 }

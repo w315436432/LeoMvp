@@ -3,7 +3,7 @@ package com.leo.common.base;
 public interface IBaseView {
     /**
      * 提示
-     * @param msg
+     * @param msg 文本
      */
     void showToast(String msg);
 
@@ -25,7 +25,7 @@ public interface IBaseView {
 
     /**
      * 处理网络错误
-     * @param throwable
+     * @param throwable {@link Throwable}
      */
     void handleThrowable(Throwable throwable);
 }
